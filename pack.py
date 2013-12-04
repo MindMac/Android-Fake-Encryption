@@ -34,7 +34,8 @@ class ApkFile(ZipFile):
 		map(lambda entry: self.compress(entry, src_apk), src_apk.filelist)
 				
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser(description='Add the encrypted flag to an APK')
+	parser = argparse.ArgumentParser(description='Add the encrypted flag to an APK. \
+	src_apk specifies the apk file you want to add encrypted flag, dst_apk is the output apk file.')
 	parser.add_argument('src_apk', type=str)
 	parser.add_argument('dst_apk', type=str)
 	args = parser.parse_args()
