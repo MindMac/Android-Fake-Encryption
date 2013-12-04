@@ -30,7 +30,7 @@ class ApkFile(ZipFile):
 		self.writestr(member, data)
 		print 'compressing %s' % member.filename
 				
-	def compressall(self, src_apk=None):
+	def compressall(self, src_apk):
 		map(lambda entry: self.compress(entry, src_apk), src_apk.filelist)
 				
 if __name__ == '__main__':
@@ -41,4 +41,4 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	src_apk = ApkFile(args.src_apk, 'r')
 	dst_apk = ApkFile(args.dst_apk, 'w')
-	dst_apk.compressall(src_apk=src_apk)
+	dst_apk.compressall(src_apk)
